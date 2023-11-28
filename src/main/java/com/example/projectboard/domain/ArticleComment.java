@@ -3,13 +3,9 @@ package com.example.projectboard.domain;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Objects;
 @Getter
 @ToString
@@ -20,7 +16,7 @@ import java.util.Objects;
 })
 @EntityListeners(AuditingEntityListener.class)
 @Entity
-public class ArticleComent extends AuditingFields{
+public class ArticleComment extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,23 +26,23 @@ public class ArticleComent extends AuditingFields{
     private String content;
 
 
-    protected ArticleComent() {
+    protected ArticleComment() {
     }
 
-    private ArticleComent(Article article, String content) {
+    private ArticleComment(Article article, String content) {
         this.article = article;
         this.content = content;
     }
 
-    public static ArticleComent of(Article article, String content) {
-        return new ArticleComent(article, content);
+    public static ArticleComment of(Article article, String content) {
+        return new ArticleComment(article, content);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ArticleComent)) return false;
-        ArticleComent that = (ArticleComent) o;
+        if (!(o instanceof ArticleComment)) return false;
+        ArticleComment that = (ArticleComment) o;
         return Objects.equals(id, that.id);
     }
 
