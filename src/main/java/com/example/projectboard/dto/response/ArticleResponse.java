@@ -1,4 +1,4 @@
-package com.example.projectboard.response;
+package com.example.projectboard.dto.response;
 
 import com.example.projectboard.dto.ArticleDto;
 import lombok.AllArgsConstructor;
@@ -19,6 +19,7 @@ public class ArticleResponse {
 
     public ArticleResponse(Long id, String title, String content, String hashtag, String email, LocalDateTime createdAt, String nickname) {
     }
+
 
     public static ArticleResponse of(Long id, String title, String content, String hashtag, String email, String nickname, LocalDateTime createdAt) {
         return new ArticleResponse(id, title, content, hashtag, email, nickname, createdAt);

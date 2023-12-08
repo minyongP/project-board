@@ -1,8 +1,8 @@
 package com.example.projectboard.controller;
 
 import com.example.projectboard.domain.type.SearchType;
-import com.example.projectboard.response.ArticleResponse;
-import com.example.projectboard.response.ArticleWithCommentsResponse;
+import com.example.projectboard.dto.response.ArticleResponse;
+import com.example.projectboard.dto.response.ArticleWithCommentsResponse;
 import com.example.projectboard.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
