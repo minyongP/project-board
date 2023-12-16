@@ -1,6 +1,7 @@
 package com.example.projectboard.dto;
 
 import com.example.projectboard.domain.Article;
+import com.example.projectboard.domain.UserAccount;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -17,6 +18,10 @@ public class ArticleDto {
     private String createdBy;
     private LocalDateTime modifiedAt;
     private String modifiedBy;
+
+    public static ArticleDto of(UserAccountDto userAccountDto, String title, String content, String hashtag) {
+        return new ArticleDto(null, userAccountDto, title, content, hashtag, null, null, null, null);
+    }
 
     public static ArticleDto of(Long id, UserAccountDto userAccountDto, String title, String content, String hashtag, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
         return new ArticleDto(id, userAccountDto, title, content, hashtag, createdAt, createdBy, modifiedAt, modifiedBy);
@@ -36,9 +41,9 @@ public class ArticleDto {
         );
     }
 
-    public Article toEntity() {
+    public Article toEntity(UserAccount userAccount) {
         return Article.of(
-                userAccountDto.toEntity(),
+                userAccount,
                 title,
                 content,
                 hashtag
