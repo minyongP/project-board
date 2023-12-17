@@ -2,6 +2,7 @@ package com.example.projectboard.dto;
 
 import com.example.projectboard.domain.Article;
 import com.example.projectboard.domain.ArticleComment;
+import com.example.projectboard.domain.UserAccount;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -18,6 +19,10 @@ public class ArticleCommentDto {
     private String createdBy;
     private LocalDateTime modifiedAt;
     private String modifiedBy;
+
+    public static ArticleCommentDto of(Long articleId, UserAccountDto userAccountDto, String content) {
+        return new ArticleCommentDto(null, articleId, userAccountDto, content, null, null, null, null);
+    }
 
     public static ArticleCommentDto of(Long id, Long articleId, UserAccountDto userAccountDto, String content, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
         return new ArticleCommentDto(id, articleId, userAccountDto, content, createdAt, createdBy, modifiedAt, modifiedBy);
@@ -36,10 +41,10 @@ public class ArticleCommentDto {
         );
     }
 
-    public ArticleComment toEntity(Article entity) {
+    public ArticleComment toEntity(Article article, UserAccount userAccount) {
         return ArticleComment.of(
-                userAccountDto.toEntity(),
-                entity,
+                userAccount,
+                article,
                 content
         );
     }
