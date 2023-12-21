@@ -115,9 +115,10 @@ class ArticleControllerTest {
 
         //when & then
         mvc.perform(get("/articles")
-                .queryParam("page", String.valueOf(pageNumber))
-                .queryParam("size", String.valueOf(pageSize))
-                .queryParam("sort", sortName + "," + direction))
+                        .queryParam("page", String.valueOf(pageNumber))
+                        .queryParam("size", String.valueOf(pageSize))
+                        .queryParam("sort", sortName + "," + direction)
+                )
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
