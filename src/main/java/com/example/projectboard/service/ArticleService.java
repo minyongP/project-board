@@ -141,7 +141,7 @@ public class ArticleService {
     }
 
     public List<String> getHashtags() {
-        return articleRepository.findAllDistinctHashtags(); // TODO: HashtagService 로 이동을 고려해보자.
+        return hashtagRepository.findAllHashtagNames(); // TODO: HashtagService 로 이동을 고려해보자.
     }
 
     private Set<Hashtag> renewHashtagFromContent(String content) {
