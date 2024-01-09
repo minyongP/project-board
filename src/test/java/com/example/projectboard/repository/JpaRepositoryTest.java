@@ -129,7 +129,7 @@ class JpaRepositoryTest {
     void givenParentComment_whenSaving_thenInsertsChildComment() {
         // Given
         ArticleComment parentComment = articleCommentRepository.getReferenceById(1L);
-        ArticleComment childComment = ArticleComment.of(parentComment.getArticle(), parentComment.getUserAccount(), "대댓글");
+        ArticleComment childComment = ArticleComment.of(parentComment.getUserAccount(), parentComment.getArticle(),  "대댓글");
 
         // When
         parentComment.addChildComment(childComment);
