@@ -1,6 +1,6 @@
 # 게시판 프로젝트 
 깃허브를 이용한 프로젝트로 기본적인 게시판 서비스를 개발하여 연습하고, 다양한 깃허브의 협업 기술들을 상요 및 연습하기 위한 repository입니다.
-
+[어드민 프로젝트](https://github.com/minyongP/project-board-admin)의 개발과 기능 사용은 이 프로젝트와 연관이 있습니다.
 ## 개발 환경
 - Intellij IDEA Ultimate 2023.2.1
 - Java11
